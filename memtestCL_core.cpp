@@ -107,7 +107,7 @@ memtestState::memtestState(cl_context context, cl_device_id device) :
             break;
     }
     loopFactor = 524288/(nBlocks*nThreads);
-    //cout << nBlocks << " work-groups of "<<nThreads<<" work-items each with a loop-factor of "<<loopFactor<<endl;
+    cout << nBlocks << " work-groups of "<<nThreads<<" work-items each with a loop-factor of "<<loopFactor;
     delete[] maxextents;
 
 }
@@ -134,6 +134,7 @@ uint memtestState::allocate(uint mbToTest) {
 		megsToTest = mbToTest;
 		loopIters = megsToTest/2;
         loopIters *= loopFactor;
+        cout << " loopIters " <<loopIters<<endl;
 
 		if (megsToTest == 0) return 0;
 		cl_int err;
